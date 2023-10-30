@@ -1,4 +1,5 @@
 import StyledComponentsRegistry from "../../lib/registry";
+import { AuthProvider } from "../../providers/auth";
 import { GlobalStyles } from "../../styles/global";
 import { Header } from "../Header";
 
@@ -9,11 +10,13 @@ interface ChildrenProps {
 export const LayoutProvider = ({ children }: ChildrenProps) => {
   return (
     <main>
-      <StyledComponentsRegistry>
-        <Header />
-        {children}
-        <GlobalStyles />
-      </StyledComponentsRegistry>
+      <AuthProvider>
+        <StyledComponentsRegistry>
+          <Header />
+          {children}
+          <GlobalStyles />
+        </StyledComponentsRegistry>
+      </AuthProvider>
     </main>
   );
 };

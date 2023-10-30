@@ -2,10 +2,13 @@
 
 import { Buttons, Navigation, SidebarContainer, SidebarHeader } from "./styles";
 import { AiOutlineClose } from "react-icons/Ai";
-import { PiSignInDuotone} from "react-icons/Pi";
+import { PiSignInDuotone } from "react-icons/Pi";
 import { PiPercentLight } from "react-icons/Pi";
-import {RiListOrdered} from 'react-icons/Ri'
-import {AiOutlineHome} from 'react-icons/Ai'
+import { RiListOrdered } from "react-icons/Ri";
+import { AiOutlineHome } from "react-icons/Ai";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { Avatar, Group, Text } from "@mantine/core";
+import { Divider } from "@mantine/core";
 
 interface OpennedProps {
   opened: boolean;
@@ -13,25 +16,50 @@ interface OpennedProps {
 }
 
 export const Sidebar = ({ opened, toggled }: OpennedProps) => {
+  const { status, data } = useSession();
+
+  const handleLoginClick = async () => {
+    await signIn();
+  };
+
+  const handleLogOutClick = async () => {
+    await signOut();
+  };
+
   return (
     <SidebarContainer className={opened ? "open" : "close"}>
-      <SidebarHeader>Menu</SidebarHeader>
-
       <Navigation>
-        <Buttons.Button bg={"transparent"} >
-          <PiSignInDuotone /> Fazer login
+        {status === "authenticated" && data?.user && (
+          <Group gap={"sm"}>
+            <Avatar src={data.user.image} />
+            <Text size="sm">{data.user.name}</Text>
+          </Group>
+        )}
+
+        {status === "unauthenticated" && (
+          <Buttons.Button bg={"transparent"} onClick={handleLoginClick}>
+            <PiSignInDuotone /> <Text>Fazer login</Text>
+          </Buttons.Button>
+        )}
+
+        {status === "authenticated" && (
+          <Buttons.Button bg={"transparent"} onClick={handleLogOutClick}>
+            <PiSignInDuotone /> <Text size="sm">Fazer logout</Text>
+          </Buttons.Button>
+        )}
+        <Buttons.Button bg={"transparent"}>
+          <AiOutlineHome />
+          <Text size="sm">Inicio</Text>
         </Buttons.Button>
 
-        <Buttons.Button bg={"transparent"} >
-          <AiOutlineHome/> Inicio
+        <Buttons.Button bg={"transparent"}>
+          <PiPercentLight />
+          <Text size="sm">Ofertas</Text>
         </Buttons.Button>
 
-        <Buttons.Button bg={"transparent"} >
-          <PiPercentLight /> Ofertas
-        </Buttons.Button>
-
-        <Buttons.Button bg={"transparent"} >
-          <RiListOrdered/> Catálogo
+        <Buttons.Button bg={"transparent"}>
+          <RiListOrdered />
+          <Text size="sm">Catálogo</Text>
         </Buttons.Button>
       </Navigation>
 
