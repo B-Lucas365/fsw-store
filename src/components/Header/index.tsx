@@ -8,22 +8,20 @@ import {
   Typography,
 } from "./styles";
 import { Sidebar } from "../Sidebar";
-import {PiShoppingCart} from 'react-icons/Pi'
+import { PiShoppingCart } from "react-icons/Pi";
+import { RxHamburgerMenu } from "react-icons/Rx";
 
 export const Header = () => {
   const [opened, { toggle }] = useDisclosure();
 
   return (
     <HeaderContainer>
-      <Sidebar opened={opened} />
+      <Sidebar opened={opened} toggled={toggle} />
 
       <HamburgerMenu className={opened ? "open" : "close"}>
-        <Buttons.Burger
-          opened={opened}
-          onClick={toggle}
-          color="#fff"
-          size={"sm"}
-        />
+        <Buttons.Button onClick={toggle} bg={"transparent"}>
+          <RxHamburgerMenu />
+        </Buttons.Button>
       </HamburgerMenu>
 
       <Typography.Title order={4}>
@@ -33,7 +31,7 @@ export const Header = () => {
           gradient={{ from: "#5033C3", to: "#8162FF" }}
         >
           FSW
-        </Typography.Text>{" "}
+        </Typography.Text>
         Store
       </Typography.Title>
 
