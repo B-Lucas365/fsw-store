@@ -7,19 +7,17 @@ import {
   Shopping,
   Typography,
 } from "./styles";
-import { Sidebar } from "../Sidebar";
 import { PiShoppingCart } from "react-icons/Pi";
 import { RxHamburgerMenu } from "react-icons/Rx";
+import { DrawerComponent } from "../Drawer";
 
 export const Header = () => {
-  const [opened, { toggle }] = useDisclosure();
+  const [opened, { open, close }] = useDisclosure();
 
   return (
     <HeaderContainer>
-      <Sidebar opened={opened} toggled={toggle} />
-
       <HamburgerMenu className={opened ? "open" : "close"}>
-        <Buttons.Button onClick={toggle} bg={"transparent"}>
+        <Buttons.Button onClick={open} bg={"transparent"}>
           <RxHamburgerMenu />
         </Buttons.Button>
       </HamburgerMenu>
@@ -40,6 +38,8 @@ export const Header = () => {
           <PiShoppingCart />
         </Buttons.Button>
       </Shopping>
+
+      <DrawerComponent opened={opened} close={close} />
     </HeaderContainer>
   );
 };

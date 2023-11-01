@@ -6,7 +6,7 @@ import "@mantine/core/styles.css";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 
 const poppins = Poppins({
-  weight: ["100" , "200" , "300" , "400" , "500" , "600" , "700" , "800" , "900"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
 
