@@ -18,7 +18,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--gray);
+  border-bottom: 1px solid var(--dark-gray);
  
   color: #fff;
   padding: 1.8rem;
