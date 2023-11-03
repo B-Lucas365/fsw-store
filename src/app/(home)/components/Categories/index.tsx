@@ -6,11 +6,13 @@ const Categories = async () => {
   const categories = await prismaClient.category.findMany({});
 
   return (
-    <Grid>
+    <Grid
+      cols={2}
+      spacing={{ base: 10, sm: "xl" }}
+      verticalSpacing={{ base: "xs", sm: "xl" }}
+    >
       {categories.map((category) => (
-        <Grid.Col span={6} key={category.id}>
-          <CategoryItem category={category} />
-        </Grid.Col>
+        <CategoryItem key={category.id} category={category} />
       ))}
     </Grid>
   );

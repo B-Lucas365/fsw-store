@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import { LayoutProvider } from "../components/LayoutProvider";
 
 import "@mantine/core/styles.css";
+import '@mantine/carousel/styles.css';
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 
 const poppins = Poppins({
