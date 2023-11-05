@@ -1,10 +1,12 @@
 import { Product } from "@prisma/client";
-import { Card, Flex } from "./styles";
+import { Badge, Card, Flex, FlexProductPrice } from "./styles";
 import Image from "next/image";
-import { Group, Text } from "@mantine/core";
+import {  Text } from "@mantine/core";
+import { ProductWithTotalPrice } from "../../helpers/products";
+import { AiOutlineArrowDown } from "react-icons/Ai";
 
 interface ProductItemProps {
-  product: Product;
+  product: ProductWithTotalPrice;
 }
 
 export const ProductItem = ({ product }: ProductItemProps) => {
@@ -19,10 +21,33 @@ export const ProductItem = ({ product }: ProductItemProps) => {
           sizes="100vh"
           className="image"
         />
+
+        {product.discountPercentage > 0 && (
+        <Badge>
+          <AiOutlineArrowDown size=".8rem" />
+          {product.discountPercentage}%
+        </Badge>)}
       </Card.Section>
 
       <Flex direction={"column"}>
         <Text size="sm">{product.name}</Text>
+
+        <FlexProductPrice align="center" gap={"md"}>
+          {product.discountPercentage > 0 ? (
+            <>
+              <Text className="total-price">
+                R${product.totalPrice.toFixed(2)}
+              </Text>
+              <Text className="base-price" size="xs">
+                R${Number(product.basePrice).toFixed(2)}
+              </Text>
+            </>
+          ) : (
+            <Text className="base-price" size="xs">
+              R${Number(product.basePrice).toFixed(2)}
+            </Text>
+          )}
+        </FlexProductPrice>
       </Flex>
     </Card>
   );
