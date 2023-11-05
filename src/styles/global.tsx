@@ -24,7 +24,19 @@ const Globals = createGlobalStyle`
 
     body {
         background: var(--black-02);
+
+        .mantine-Drawer-content, 
+        .mantine-Drawer-header {
+            background: var(--black-02);
+        }
+
+        .mantine-Drawer-close {
+            color: var(--white);
+            background-color: transparent;
+        }
     }
+
+    
 `;
 
 export const GlobalStyles = () => {

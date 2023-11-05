@@ -1,8 +1,12 @@
 "use client";
-
-import { Avatar, Drawer, Group, Text } from "@mantine/core";
+import { Group, Text } from "@mantine/core";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { Buttons, Navigation, SidebarContainer } from "./styles";
+import {
+  Avatar,
+  Buttons,
+  Drawer,
+  Navigation,
+} from "./styles";
 import { PiPercentLight, PiSignInDuotone } from "react-icons/Pi";
 import { AiOutlineHome } from "react-icons/Ai";
 import { RiListOrdered } from "react-icons/Ri";
@@ -30,43 +34,41 @@ export const DrawerComponent = ({ opened, close }: DrawerProps) => {
       overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
       size={"60%"}
     >
-      <SidebarContainer className={opened ? "open" : "close"}>
-        <Navigation>
-          {status === "authenticated" && data?.user && (
-            <Group gap={"sm"}>
-              <Avatar src={data.user.image} />
-              <Text size="sm">{data.user.name}</Text>
-            </Group>
-          )}
+      <Navigation>
+        {status === "authenticated" && data?.user && (
+          <Group gap={"sm"}>
+            <Avatar src={data.user.image} />
+            <Text size="sm">{data.user.name}</Text>
+          </Group>
+        )}
 
-          {status === "unauthenticated" && (
-            <Buttons.Button bg={"transparent"} onClick={handleLoginClick}>
-              <PiSignInDuotone /> <Text>Fazer login</Text>
-            </Buttons.Button>
-          )}
-
-          {status === "authenticated" && (
-            <Buttons.Button bg={"transparent"} onClick={handleLogOutClick}>
-              <PiSignInDuotone /> <Text size="sm">Fazer logout</Text>
-            </Buttons.Button>
-          )}
-
-          <Buttons.Button bg={"transparent"}>
-            <AiOutlineHome />
-            <Text size="sm">Inicio</Text>
+        {status === "unauthenticated" && (
+          <Buttons.Button bg={"transparent"} onClick={handleLoginClick}>
+            <PiSignInDuotone /> <Text>Fazer login</Text>
           </Buttons.Button>
+        )}
 
-          <Buttons.Button bg={"transparent"}>
-            <PiPercentLight />
-            <Text size="sm">Ofertas</Text>
+        {status === "authenticated" && (
+          <Buttons.Button bg={"transparent"} onClick={handleLogOutClick}>
+            <PiSignInDuotone /> <Text size="sm">Fazer logout</Text>
           </Buttons.Button>
+        )}
 
-          <Buttons.Button bg={"transparent"}>
-            <RiListOrdered />
-            <Text size="sm">Catálogo</Text>
-          </Buttons.Button>
-        </Navigation>
-      </SidebarContainer>
+        <Buttons.Button bg={"transparent"}>
+          <AiOutlineHome />
+          <Text size="sm">Inicio</Text>
+        </Buttons.Button>
+
+        <Buttons.Button bg={"transparent"}>
+          <PiPercentLight />
+          <Text size="sm">Ofertas</Text>
+        </Buttons.Button>
+
+        <Buttons.Button bg={"transparent"}>
+          <RiListOrdered />
+          <Text size="sm">Catálogo</Text>
+        </Buttons.Button>
+      </Navigation>
     </Drawer>
   );
 };

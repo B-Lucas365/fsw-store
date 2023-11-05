@@ -1,27 +1,27 @@
 "use client";
 import styled from "styled-components";
-import { Button, Burger } from "@mantine/core";
+import { Button, Burger, Drawer as DrawerMantine, Avatar as AvatarMantine} from "@mantine/core";
 
 export const Buttons = {
   Button,
   Burger,
 };
 
-export const SidebarContainer = styled.div`
+export const Drawer = styled(DrawerMantine)`
+  color: var(--white);
+`
 
-  .mantine-Button-root {
-    svg {
-      font-size: 1.4rem;
-      margin-right: 0.3rem;
-    }
-  }
-`;
+export const Avatar = styled(AvatarMantine)`
 
-export const SidebarHeader = styled.div``;
+`
 
 export const Navigation = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   align-items: flex-start;
+  svg {
+    font-size: 1.2rem;
+    margin-right: .5rem;
+  }
 `;
