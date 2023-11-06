@@ -1,11 +1,11 @@
 "use client";
 import styled from "styled-components";
 import { Flex as FlexContainer } from "@mantine/core";
-import { FaRegKeyboard } from "react-icons/Fa";
-import { CiDesktopMouse1 } from "react-icons/Ci";
-import { FiMonitor, FiSquare } from "react-icons/Fi";
-import { CiHeadphones } from "react-icons/Ci";
-import { PiSpeakerSimpleNoneLight } from "react-icons/Pi";
+import { FaRegKeyboard } from "react-icons/fa";
+import { CiDesktopMouse1 } from "react-icons/ci";
+import { FiMonitor, } from "react-icons/fi";
+import { CiHeadphones } from "react-icons/ci";
+import { PiSpeakerSimpleNoneLight } from "react-icons/pi";
 
 //icons
 export const KeyboardIcon = styled(FaRegKeyboard)``;

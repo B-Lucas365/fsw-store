@@ -7,9 +7,9 @@ import {
   Drawer,
   Navigation,
 } from "./styles";
-import { PiPercentLight, PiSignInDuotone } from "react-icons/Pi";
-import { AiOutlineHome } from "react-icons/Ai";
-import { RiListOrdered } from "react-icons/Ri";
+import { PiPercentLight, PiSignInDuotone } from "react-icons/pi";
+import { AiOutlineHome } from "react-icons/ai";
+import { RiListOrdered } from "react-icons/ri";
 
 interface DrawerProps {
   opened: boolean;

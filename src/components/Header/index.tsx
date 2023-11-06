@@ -7,8 +7,8 @@ import {
   Shopping,
   Typography,
 } from "./styles";
-import { PiShoppingCart } from "react-icons/Pi";
-import { RxHamburgerMenu } from "react-icons/Rx";
+import { PiShoppingCart } from "react-icons/pi";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { DrawerComponent } from "../Drawer";
 
 export const Header = () => {

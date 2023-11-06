@@ -9,7 +9,6 @@ import {
   SpeakersIcon,
 } from "./styles";
 import { Text } from "@mantine/core";
-import { FiSquare } from "react-icons/Fi";
 
 interface ItemProps {
   category: Category;
