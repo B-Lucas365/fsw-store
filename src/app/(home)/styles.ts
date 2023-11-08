@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Flex as FlexMantine, Text as TextMantine } from "@mantine/core";
 
 export const HomeContainer = styled.main`
-  
+  padding: 2rem 0;
   .banner {
     width: 100%;
     height: auto;
