@@ -11,8 +11,8 @@ interface ChildrenProps {
 
 export const LayoutProvider = ({ children }: ChildrenProps) => {
   return (
-    <main>
-      <AuthProvider>
+    <AuthProvider>
+      <main>
         <StyledComponentsRegistry>
           <Flex direction={"column"}>
             <Header />
@@ -21,7 +21,7 @@ export const LayoutProvider = ({ children }: ChildrenProps) => {
             <Footer />
           </Flex>
         </StyledComponentsRegistry>
-      </AuthProvider>
-    </main>
+      </main>
+    </AuthProvider>
   );
 };

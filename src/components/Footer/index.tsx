@@ -1,5 +1,6 @@
+import { Text } from "@mantine/core"
 import { FooterContainer } from "./styles"
-import {Text} from "@mantine/core"
+
 
 export const Footer = () => {
     return (

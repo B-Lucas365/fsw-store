@@ -24,6 +24,7 @@ const Globals = createGlobalStyle`
 
     body {
         background: var(--black-02);
+        color: var(--white);
 
         .mantine-Drawer-content, 
         .mantine-Drawer-header {
