@@ -10,6 +10,7 @@ import {
 import { PiShoppingCart } from "react-icons/pi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { DrawerComponent } from "../Drawer";
+import Link from "next/link";
 
 export const Header = () => {
   const [opened, { open, close }] = useDisclosure();
@@ -22,16 +23,18 @@ export const Header = () => {
         </Buttons.Button>
       </HamburgerMenu>
 
-      <Typography.Title order={4}>
-        <Typography.Text
-          span={true}
-          variant="gradient"
-          gradient={{ from: "#5033C3", to: "#8162FF" }}
-        >
-          FSW
-        </Typography.Text>
-        Store
-      </Typography.Title>
+      <Link href={"/"}>
+        <Typography.Title order={4} className="title-pointer">
+          <Typography.Text
+            span={true}
+            variant="gradient"
+            gradient={{ from: "#5033C3", to: "#8162FF" }}
+          >
+            FSW
+          </Typography.Text>
+          Store
+        </Typography.Title>
+      </Link>
 
       <Shopping>
         <Buttons.Button bg={"transparent"}>

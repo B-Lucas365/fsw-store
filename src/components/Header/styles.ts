@@ -31,6 +31,10 @@ export const HeaderContainer = styled.header`
       font-size: 18px;
     }
   }
+
+  .title-pointer {
+    cursor: pointer;
+  }
 `;
 
 export const HamburgerMenu = styled.div`
