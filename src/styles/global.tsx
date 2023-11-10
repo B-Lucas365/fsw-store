@@ -35,6 +35,11 @@ const Globals = createGlobalStyle`
             color: var(--white);
             background-color: transparent;
         }
+
+        a {
+            text-decoration: none;
+            color: var(--white);
+        }
     }
 
     

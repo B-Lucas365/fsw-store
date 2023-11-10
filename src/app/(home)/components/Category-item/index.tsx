@@ -1,32 +1,16 @@
 import { Category } from "@prisma/client";
-import {
-  Flex,
-  HeadphoneIcon,
-  KeyboardIcon,
-  MonitorIcon,
-  MouseIcon,
-  MousePadIcon,
-  SpeakersIcon,
-} from "./styles";
+import { Flex } from "./styles";
 import { Text } from "@mantine/core";
+import { CATERGORY_ICON } from "../../../../constants/category-icon";
 
 interface ItemProps {
   category: Category;
 }
 
 export const CategoryItem = ({ category }: ItemProps) => {
-  const categoryIcon = {
-    keyboards: <KeyboardIcon />,
-    monitors: <MonitorIcon />,
-    headphones: <HeadphoneIcon />,
-    mousepads: <MousePadIcon />,
-    speakers: <SpeakersIcon />,
-    mouses: <MouseIcon />,
-  };
-
   return (
     <Flex color="#fff">
-      {categoryIcon[category.slug as keyof typeof categoryIcon]}
+      {CATERGORY_ICON[category.slug as keyof typeof CATERGORY_ICON]}
       <Text span={true} size="sm">
         {category.name}
       </Text>

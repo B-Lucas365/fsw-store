@@ -1,3 +1,4 @@
+'use client'
 import { Badge, Card, Flex, FlexProductPrice } from "./styles";
 import Image from "next/image";
 import {  Text } from "@mantine/core";
